@@ -3,10 +3,8 @@
 
 #include <string>
 #include "utils.h"
-
+#include "common_pages.h"
 using namespace std;
-
-
 
 
 /// 从同步设备本地时间
@@ -37,4 +35,5 @@ inline void handle_recv_msg(string msg) {
         int timestamp = get_json_int(msg.c_str(), "timestamp", 0);
         sync_local_time(timestamp);
     }
+    pm.handle_msg(msg.c_str());
 }

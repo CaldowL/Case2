@@ -16,4 +16,6 @@ public:
     void on_page_hide() override;
 
     void page_loop() override;
+
+    void handle_msg(String msg) override;
 };

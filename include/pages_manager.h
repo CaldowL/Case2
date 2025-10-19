@@ -87,6 +87,10 @@ public:
         return share_infos.top();
     }
 
+    void handle_msg(String msg) {
+        this->pages.top()->handle_msg(msg);
+    }
+
     void loop() {
         pages.top()->page_loop();
     }

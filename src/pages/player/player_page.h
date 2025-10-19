@@ -5,14 +5,17 @@
 #include "pages_manager.h"
 
 
-class PageWifi: public Page {
+class PagePlayer : public Page {
 public:
     PagesManager manager;
 
-    PageWifi(lv_obj_t *screen, PagesManager &pm);
+    PagePlayer(lv_obj_t *screen, PagesManager &pm);
 
     void on_page_show() override;
 
     void on_page_hide() override;
+
     void page_loop() override;
+
+    void handle_msg(String msg) override;
 };

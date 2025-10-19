@@ -48,3 +48,6 @@ void PageMain::page_loop() {
         refresh_label_time();
     }
 }
+
+void PageMain::handle_msg(String msg) {
+}

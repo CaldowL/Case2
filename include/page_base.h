@@ -17,4 +17,6 @@ public:
     virtual void on_page_hide() =0;
 
     virtual void page_loop() =0;
+
+    virtual void handle_msg(String msg) =0;
 };

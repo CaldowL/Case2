@@ -2,6 +2,7 @@
 #include <TFT_eSPI.h>
 
 #include "lvgl_adapter.h"
+#include "lvgl_file_adapter.h"
 #include "pages_manager.h"
 #include "WiFi.h"
 #include "ui.h"
@@ -24,10 +25,11 @@ lv_color_t *disp_draw_buf2;
 PagesManager pm;
 
 PageMain *pageMain;
-PageWifi *pageWifi;
 PageKeyBoard *pageKeyBoard;
 PageButtons *pageButtons;
+PagePlayer *pagePlayer;
 
+int Volume = 0;
 
 void initHardware() {
     Serial.begin(115200);
@@ -74,14 +76,34 @@ void initLvgl() {
     lv_indev_drv_register(&indev_drv);
 }
 
+void initLvglSDCard() {
+    // 初始化SD卡
+    if (!initSDCard()) {
+        Serial.println("SD card initialization failed!");
+        return;
+    }
+
+    listFiles();
+
+    initLVGLFileSystem();
+    Serial.println("LVGL file system initialized");
+
+    // loadAndDisplayImage();
+    // loadAndUseFont();
+}
+
 
 void setup() {
     initHardware();
+    // initLvglSDCard();
+
     initLvgl();
+
     ui_init();
 
     pageMain = new PageMain(ui_Screen1, pm);
     pageButtons = new PageButtons(ui_ScreenButtons, pm);
+    pagePlayer = new PagePlayer(uic_ScreenMusic, pm);
 
     pm.set_default_page(pageMain);
 
