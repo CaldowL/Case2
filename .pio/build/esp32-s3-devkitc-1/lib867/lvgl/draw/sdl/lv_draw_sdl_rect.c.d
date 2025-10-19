@@ -1,0 +1,7 @@
+.pio/build/esp32-s3-devkitc-1/lib867/lvgl/draw/sdl/lv_draw_sdl_rect.c.o: \
+ lib/lvgl/src/draw/sdl/lv_draw_sdl_rect.c \
+ lib/lvgl/src/draw/sdl/../../lv_conf_internal.h \
+ lib/lvgl/src/draw/sdl/../../lv_conf_kconfig.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/qio_opi/include/sdkconfig.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/esp_common/include/esp_attr.h \
+ lib/lvgl/../../lv_conf.h
