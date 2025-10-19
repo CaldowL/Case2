@@ -2,14 +2,27 @@
 // Created by 26413 on 2025/10/19.
 //
 #pragma once
+#include <ArduinoJson.h>
+
 #include "buttons_page.h"
 #include "common_pages.h"
 #include "ui.h"
+
 
 void PageButtons::button_click_back(lv_event_t *e) {
     PagesManager *pm = static_cast<PagesManager *>(lv_event_get_user_data(e));
     Serial.println("button click");
     pm->navigate_back();
+}
+
+void PageButtons::button_click_notepad(lv_event_t *e) {
+    JsonDocument doc;
+    doc["action"] = "app_exec";
+    doc["type"] = "request";
+    doc["command"] = "notepad";
+    String jsonStr;
+    serializeJson(doc, jsonStr);
+    Serial.println(jsonStr);
 }
 
 
@@ -20,6 +33,7 @@ PageButtons::PageButtons(lv_obj_t *screen, PagesManager &pm) : Page(screen) {
     // lv_obj_add_event_cb(uic_Keyboard3, keyboard_ready, LV_EVENT_READY, &pm);
     Serial.println("PageButtons init");
     lv_obj_add_event_cb(uic_ButtonBack, button_click_back, LV_EVENT_CLICKED, &pm);
+    lv_obj_add_event_cb(uic_ButtonNotepad, button_click_notepad, LV_EVENT_CLICKED, nullptr);
 }
 
 void PageButtons::on_page_show() {
