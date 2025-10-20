@@ -1,14 +1,15 @@
 #include <lvgl.h>
 #include <TFT_eSPI.h>
+#include <WiFi.h>
 
 #include "lvgl_adapter.h"
 #include "lvgl_file_adapter.h"
 #include "pages_manager.h"
-#include "WiFi.h"
 #include "ui.h"
 #include "common_pages.h"
 #include "utils.h"
 #include "app_event.h"
+#include "http.h"
 #include "pages/buttons/buttons_page.h"
 
 using namespace std;
@@ -30,6 +31,10 @@ PageButtons *pageButtons;
 PagePlayer *pagePlayer;
 
 int Volume = 0;
+
+const String ssid = "HUAWEI-1GRME0";
+const String password = "ly05661265";
+const String baseUrl = "http://192.168.3.54:9000/";
 
 void initHardware() {
     Serial.begin(115200);
@@ -92,12 +97,34 @@ void initLvglSDCard() {
     // loadAndUseFont();
 }
 
+void connectWiFi() {
+    // 启动WiFi连接
+    WiFi.begin(ssid, password);
+    Serial.print("正在连接到WiFi");
+
+    while (WiFi.status() != WL_CONNECTED) {
+        delay(500);
+        Serial.print(".");
+    }
+
+    Serial.println("\nWiFi连接成功！");
+    Serial.print("IP地址: ");
+    Serial.println(WiFi.localIP());
+
+    sync_ntp_time();
+}
 
 void setup() {
     initHardware();
     // initLvglSDCard();
 
     initLvgl();
+
+    connectWiFi();
+
+    String res;
+    httpGet(baseUrl, res);
+    Serial.println(res);
 
     ui_init();
 

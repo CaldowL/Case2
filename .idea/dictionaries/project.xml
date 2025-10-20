@@ -2,8 +2,11 @@
   <dictionary name="project">
     <words>
       <w>cacl</w>
+      <w>disp</w>
+      <w>grme</w>
       <w>hspi</w>
       <w>lastpos</w>
+      <w>lvgl</w>
       <w>psram</w>
       <w>recv</w>
       <w>sclk</w>

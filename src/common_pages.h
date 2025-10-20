@@ -15,3 +15,5 @@ extern lv_obj_t *messageBox;
 extern int Volume;
 
 extern PagesManager pm;
+
+extern const String baseUrl;

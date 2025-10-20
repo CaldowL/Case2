@@ -455,14 +455,7 @@
  lib/TFT_eSPI/Fonts/Custom/Satisfy_24.h \
  lib/TFT_eSPI/Fonts/Custom/Yellowtail_32.h \
  lib/TFT_eSPI/Extensions/Smooth_font.h lib/TFT_eSPI/Extensions/Button.h \
- lib/TFT_eSPI/Extensions/Sprite.h include/lvgl_adapter.h \
- lib/FT6336-arduino/FT6336.h \
- C:/Users/26413/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src/Wire.h \
- C:/Users/26413/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal.h \
- include/lvgl_file_adapter.h \
- C:/Users/26413/.platformio/packages/framework-arduinoespressif32/libraries/SD/src/SD.h \
- C:/Users/26413/.platformio/packages/framework-arduinoespressif32/libraries/SD/src/sd_defines.h \
- include/pages_manager.h include/page_base.h \
+ lib/TFT_eSPI/Extensions/Sprite.h \
  C:/Users/26413/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFi.h \
  C:/Users/26413/.platformio/packages/framework-arduinoespressif32/cores/esp32/IPv6Address.h \
  C:/Users/26413/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiType.h \
@@ -482,13 +475,60 @@
  C:/Users/26413/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiUdp.h \
  C:/Users/26413/.platformio/packages/framework-arduinoespressif32/cores/esp32/Udp.h \
  C:/Users/26413/.platformio/packages/framework-arduinoespressif32/cores/esp32/cbuf.h \
- lib/ui/src/ui.h lib/ui/src/ui_helpers.h lib/ui/src/ui.h \
- lib/ui/src/ui_events.h lib/ui/src/ui_Screen1.h \
- lib/ui/src/ui_ScreenButtons.h lib/ui/src/ui_Screen2.h src/common_pages.h \
+ include/lvgl_adapter.h lib/FT6336-arduino/FT6336.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src/Wire.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal.h \
+ include/lvgl_file_adapter.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/libraries/SD/src/SD.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/libraries/SD/src/sd_defines.h \
+ include/pages_manager.h include/page_base.h lib/ui/src/ui.h \
+ lib/ui/src/ui_helpers.h lib/ui/src/ui.h lib/ui/src/ui_events.h \
+ lib/ui/src/ui_Screen1.h lib/ui/src/ui_ScreenButtons.h \
+ lib/ui/src/ui_Screen2.h src/common_pages.h \
  src/pages/buttons/buttons_page.h src/pages/keyboard/keyboard_page.h \
  src/pages/main/main_page.h src/pages/player/player_page.h \
  include/utils.h lib/ArduinoJson/src/ArduinoJson.h \
  lib/ArduinoJson/src/ArduinoJson.hpp \
  lib/ArduinoJson/src/ArduinoJson/Configuration.hpp \
  C:/Users/26413/.platformio/packages/framework-arduinoespressif32/libraries/Preferences/src/Preferences.h \
- src/app_event.h
+ src/app_event.h include/http.h lib/HTTPClient/src/HTTPClient.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiClient.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/libraries/WiFiClientSecure/src/WiFiClientSecure.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/libraries/WiFiClientSecure/src/ssl_client.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/mbedtls/include/mbedtls/platform.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/port/include/mbedtls/esp_config.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/mbedtls/include/mbedtls/config.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/mbedtls/include/mbedtls/check_config.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/port/include/esp_mem.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/mbedtls/include/mbedtls/platform_time.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/mbedtls/include/mbedtls/net.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/mbedtls/include/mbedtls/net_sockets.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/mbedtls/include/mbedtls/ssl.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/port/include/mbedtls/bignum.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/mbedtls/include/mbedtls/bignum.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/mbedtls/include/mbedtls/ecp.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/mbedtls/include/mbedtls/ssl_ciphersuites.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/mbedtls/include/mbedtls/pk.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/mbedtls/include/mbedtls/md.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/mbedtls/include/mbedtls/platform_util.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/mbedtls/include/mbedtls/rsa.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/mbedtls/include/mbedtls/ecdsa.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/mbedtls/include/mbedtls/cipher.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/mbedtls/include/mbedtls/x509_crt.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/mbedtls/include/mbedtls/x509.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/mbedtls/include/mbedtls/asn1.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/mbedtls/include/mbedtls/x509_crl.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/mbedtls/include/mbedtls/dhm.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/mbedtls/include/mbedtls/ecdh.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/mbedtls/include/mbedtls/debug.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/mbedtls/include/mbedtls/entropy.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/mbedtls/include/mbedtls/sha512.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/port/include/sha512_alt.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/hal/include/hal/sha_types.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/esp_rom/include/esp32s3/rom/sha.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/mbedtls/include/mbedtls/ctr_drbg.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/mbedtls/include/mbedtls/aes.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/port/include/aes_alt.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/port/include/aes/esp_aes.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/hal/include/hal/aes_types.h \
+ C:/Users/26413/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/mbedtls/mbedtls/include/mbedtls/error.h

@@ -128,7 +128,6 @@ inline void get_local_time(tm &timeinfo) {
     }
 }
 
-
 ///字符串显示当前系统时间
 inline void show_local_time() {
     tm timeinfo;
@@ -136,4 +135,30 @@ inline void show_local_time() {
     char timeString[64];
     strftime(timeString, sizeof(timeString), "%Y-%m-%d %H:%M:%S", &timeinfo);
     Serial.printf("本地时间: %s\n", timeString);
+}
+
+
+inline bool sync_ntp_time() {
+    Serial.println("正在初始化NTP...");
+
+    // 配置NTP服务器和时区
+    configTime(8 * 3600, 0, "ntp.aliyun.com");
+
+    tm timeinfo;
+    Serial.print("等待时间同步");
+    int retryCount = 0;
+    while (!getLocalTime(&timeinfo) && retryCount < 20) {
+        Serial.print(".");
+        delay(100);
+        retryCount++;
+    }
+
+    if (retryCount >= 20) {
+        Serial.println("\nNTP时间同步失败！");
+        return false;
+    }
+
+    Serial.println("\nNTP时间同步成功！");
+    show_local_time();
+    return true;
 }
