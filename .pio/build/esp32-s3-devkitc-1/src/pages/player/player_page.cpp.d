@@ -185,7 +185,7 @@
  lib/lvgl/src/extra/widgets/span/lv_span.h \
  f:\projects\case2\lib\lvgl\src\lvgl.h lib/ui/src/ui_helpers.h \
  lib/ui/src/ui.h lib/ui/src/ui_events.h lib/ui/src/ui_Screen1.h \
- lib/ui/src/ui_ScreenButtons.h lib/ui/src/ui_Screen2.h \
+ lib/ui/src/ui_ScreenButtons.h lib/ui/src/ui_ScreenPlayer.h \
  src/pages/player/player_page.h \
  C:/Users/26413/.platformio/packages/framework-arduinoespressif32/cores/esp32/Arduino.h \
  C:/Users/26413/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp_arduino_version.h \

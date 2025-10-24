@@ -185,4 +185,4 @@
  lib/lvgl/src/extra/widgets/span/lv_span.h \
  f:\projects\case2\lib\lvgl\src\lvgl.h lib/ui/src/ui_helpers.h \
  lib/ui/src/ui_events.h lib/ui/src/ui_Screen1.h \
- lib/ui/src/ui_ScreenButtons.h lib/ui/src/ui_Screen2.h
+ lib/ui/src/ui_ScreenButtons.h lib/ui/src/ui_ScreenPlayer.h

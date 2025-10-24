@@ -4,6 +4,7 @@
 #include <Preferences.h>
 #include <lvgl.h>
 #include <string.h>
+#include "ui.h"
 
 using namespace std;
 // 定义在头文件中声明的全局变量
@@ -115,10 +116,6 @@ inline String get_json_string(const String &jsonStr, const String &key, const St
     return get_json_value<String>(jsonStr, key, defaultValue);
 }
 
-inline void hello() {
-    Serial.println("hello");
-}
-
 
 /// #### 时间相关
 
@@ -161,4 +158,55 @@ inline bool sync_ntp_time() {
     Serial.println("\nNTP时间同步成功！");
     show_local_time();
     return true;
+}
+
+// 更好的随机数种子初始化
+inline void initRandomSeed() {
+    // 组合多个模拟引脚读数和时间变量来增强随机性
+    long seed = analogRead(0);
+    seed += analogRead(1) * 256;
+    seed += analogRead(2) * 65536;
+    seed += micros();
+    randomSeed(seed);
+}
+
+
+// 生成0~100之间的随机整数
+inline int getRandom0to100() {
+    initRandomSeed();
+    return random(0, 101);
+}
+
+// 动画回调函数，同时更新圆弧和标签
+inline void arc_anim_cb_cpu(void *obj, int32_t value) {
+    lv_arc_set_value((lv_obj_t *) obj, value);
+    lv_label_set_text(uic_LabelCPU, (std::to_string(value) + "%").c_str());
+}
+
+inline void set_cpu_value_with_animation(int new_value) {
+    lv_anim_t a;
+    lv_anim_init(&a);
+    lv_anim_set_var(&a, uic_ArcCPU);
+    lv_anim_set_values(&a, lv_arc_get_value(uic_ArcCPU), new_value);
+    lv_anim_set_time(&a, 300); // 300ms动画时间
+    lv_anim_set_exec_cb(&a, (lv_anim_exec_xcb_t) arc_anim_cb_cpu);
+    lv_anim_set_path_cb(&a, lv_anim_path_ease_out);
+    lv_anim_start(&a);
+}
+
+// 动画回调函数，同时更新圆弧和标签
+inline void arc_anim_cb_gpu(void *obj, int32_t value) {
+    lv_arc_set_value((lv_obj_t *) obj, value);
+    lv_label_set_text(uic_LabelGPU, (std::to_string(value) + "%").c_str());
+}
+
+inline void set_gpu_value_with_animation(int new_value) {
+    lv_anim_t a;
+    lv_anim_init(&a);
+    lv_anim_set_var(&a, uic_ArcGPU);
+    lv_anim_set_values(&a, lv_arc_get_value(uic_ArcGPU), new_value);
+    lv_anim_set_time(&a, 300); // 300ms动画时间
+    lv_anim_set_exec_cb(&a, (lv_anim_exec_xcb_t) arc_anim_cb_gpu);
+    lv_anim_set_path_cb(&a, lv_anim_path_ease_out);
+    lv_anim_start(&a);
 }

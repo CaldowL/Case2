@@ -16,10 +16,28 @@ extern void ui_Screen1_screen_destroy(void);
 extern lv_obj_t * ui_Screen1;
 extern lv_obj_t * ui_LabelTime;
 extern lv_obj_t * ui_Button3;
+extern lv_obj_t * ui_Container5;
+extern lv_obj_t * ui_Arc1;
+extern lv_obj_t * ui_Container4;
+extern lv_obj_t * ui_Label11;
+extern lv_obj_t * ui_Label10;
+extern lv_obj_t * ui_Arc3;
+extern lv_obj_t * ui_Container6;
+extern lv_obj_t * ui_Label14;
+extern lv_obj_t * ui_Label12;
+extern lv_obj_t * ui_Container7;
+extern lv_obj_t * ui_Slider3;
+extern lv_obj_t * ui_Label13;
 // CUSTOM VARIABLES
 extern lv_obj_t * uic_Screen1;
 extern lv_obj_t * uic_LabelTime;
 extern lv_obj_t * uic_Button3;
+extern lv_obj_t * uic_ArcCPU;
+extern lv_obj_t * uic_LabelCPU;
+extern lv_obj_t * uic_ArcGPU;
+extern lv_obj_t * uic_LabelGPU;
+extern lv_obj_t * uic_SliderVol;
+extern lv_obj_t * uic_LabeVol;
 
 #ifdef __cplusplus
 } /*extern "C"*/

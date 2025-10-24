@@ -34,7 +34,9 @@ int Volume = 0;
 
 const String ssid = "HUAWEI-1GRME0";
 const String password = "ly05661265";
-const String baseUrl = "http://192.168.3.54:9000/";
+const String baseUrl = "http://192.168.3.54:9000";
+
+long last_record_time = millis();
 
 void initHardware() {
     Serial.begin(115200);
@@ -46,11 +48,11 @@ void initHardware() {
 
     my_lcd.init();
     my_lcd.setRotation(3);
-    my_lcd.fillScreen(TFT_BLUE);
-    delay(20);
-    my_lcd.fillScreen(TFT_RED);
-    delay(20);
-    my_lcd.fillScreen(TFT_BLACK);
+    // my_lcd.fillScreen(TFT_BLUE);
+    // delay(20);
+    // my_lcd.fillScreen(TFT_RED);
+    // delay(20);
+    // my_lcd.fillScreen(TFT_BLACK);
     touch_init(my_lcd.width(), my_lcd.height(), my_lcd.getRotation());
 }
 
@@ -123,7 +125,7 @@ void setup() {
     connectWiFi();
 
     String res;
-    httpGet(baseUrl, res);
+    // httpGet(baseUrl, res);
     Serial.println(res);
 
     ui_init();
@@ -148,6 +150,7 @@ void setup() {
 void loop() {
     lv_task_handler();
     pm.loop();
+
     if (Serial.available() > 0) {
         String inputString = Serial.readStringUntil('\n');
         inputString.trim();

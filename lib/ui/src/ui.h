@@ -29,7 +29,7 @@ extern "C" {
 
 #include "ui_Screen1.h"
 #include "ui_ScreenButtons.h"
-#include "ui_Screen2.h"
+#include "ui_ScreenPlayer.h"
 
 ///////////////////// VARIABLES ////////////////////
 
@@ -49,10 +49,10 @@ LV_IMG_DECLARE(ui_img_1676589243);    // assets/暂停 (1).png
 LV_IMG_DECLARE(ui_img_853450402);    // assets/下一首.png
 
 // FONTS
+LV_FONT_DECLARE(ui_font_Font15);
 LV_FONT_DECLARE(ui_font_FontNotepad);
 LV_FONT_DECLARE(ui_font_FontNotepad20);
 LV_FONT_DECLARE(ui_font_FontTime36);
-LV_FONT_DECLARE(ui_font_Font15);
 
 // UI INIT
 void ui_init(void);

@@ -369,4 +369,4 @@
  src/pages/main/main_page.h src/pages/player/player_page.h \
  lib/ui/src/ui.h lib/ui/src/ui_helpers.h lib/ui/src/ui.h \
  lib/ui/src/ui_events.h lib/ui/src/ui_Screen1.h \
- lib/ui/src/ui_ScreenButtons.h lib/ui/src/ui_Screen2.h
+ lib/ui/src/ui_ScreenButtons.h lib/ui/src/ui_ScreenPlayer.h

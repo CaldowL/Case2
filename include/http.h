@@ -20,6 +20,8 @@ inline bool httpGet(String url, String &response) {
     bool success = false;
 
     http.begin(url);
+    http.setConnectTimeout(1000);
+    http.setTimeout(1000);
     int httpCode = http.GET();
 
     if (httpCode == HTTP_CODE_OK) {
