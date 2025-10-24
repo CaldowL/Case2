@@ -30,6 +30,17 @@ void set_vol_label_value(lv_event_t *e) {
     lv_label_set_text(uic_LabeVol, to_string(v).c_str());
 }
 
+void sync_vol_to_pc(lv_event_t *e) {
+    int v = lv_slider_get_value(uic_SliderVol);
+    String s;
+    httpGet(baseUrl + "/vol/set?value=" + to_string(v).c_str(), s);
+}
+
+void set_vol_value(int value) {
+    lv_label_set_text(uic_LabeVol, to_string(value).c_str());
+    lv_slider_set_value(uic_SliderVol, value, LV_ANIM_OFF);
+}
+
 void PageMain::button_click(lv_event_t *e) {
     PagesManager *pm = static_cast<PagesManager *>(lv_event_get_user_data(e));
     Serial.println("button click");
@@ -43,6 +54,7 @@ PageMain::PageMain(lv_obj_t *screen, PagesManager &pm) : Page(screen) {
     lv_obj_add_event_cb(uic_Button3, button_click, LV_EVENT_CLICKED, &pm);
 
     lv_obj_add_event_cb(uic_SliderVol, set_vol_label_value, LV_EVENT_VALUE_CHANGED, nullptr);
+    lv_obj_add_event_cb(uic_SliderVol, sync_vol_to_pc, LV_EVENT_RELEASED, nullptr);
 }
 
 void PageMain::on_page_show() {
@@ -64,6 +76,7 @@ void PageMain::page_loop() {
             Serial.println(httpPerformanceRes);
             set_cpu_value_with_animation(get_json_int(httpPerformanceRes, "cpu"));
             set_gpu_value_with_animation(get_json_int(httpPerformanceRes, "gpu"));
+            set_vol_value(get_json_int(httpPerformanceRes, "vol"));
         }
     }
 }
