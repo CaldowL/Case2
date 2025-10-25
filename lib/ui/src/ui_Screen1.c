@@ -150,12 +150,12 @@ void ui_Screen1_screen_init(void)
     ui_Container7 = lv_obj_create(ui_Screen1);
     lv_obj_remove_style_all(ui_Container7);
     lv_obj_set_width(ui_Container7, 37);
-    lv_obj_set_height(ui_Container7, 300);
-    lv_obj_set_x(ui_Container7, 208);
-    lv_obj_set_y(ui_Container7, 1);
+    lv_obj_set_height(ui_Container7, 307);
+    lv_obj_set_x(ui_Container7, 210);
+    lv_obj_set_y(ui_Container7, 2);
     lv_obj_set_align(ui_Container7, LV_ALIGN_CENTER);
     lv_obj_set_flex_flow(ui_Container7, LV_FLEX_FLOW_COLUMN);
-    lv_obj_set_flex_align(ui_Container7, LV_FLEX_ALIGN_SPACE_AROUND, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER);
+    lv_obj_set_flex_align(ui_Container7, LV_FLEX_ALIGN_SPACE_EVENLY, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER);
     lv_obj_clear_flag(ui_Container7, LV_OBJ_FLAG_CLICKABLE | LV_OBJ_FLAG_SCROLLABLE);      /// Flags
 
     ui_Slider3 = lv_slider_create(ui_Container7);
@@ -168,14 +168,14 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_align(ui_Slider3, LV_ALIGN_CENTER);
 
     ui_Label13 = lv_label_create(ui_Container7);
-    lv_obj_set_width(ui_Label13, 20);
+    lv_obj_set_width(ui_Label13, 33);
     lv_obj_set_height(ui_Label13, LV_SIZE_CONTENT);    /// 3
     lv_obj_set_x(ui_Label13, 208);
     lv_obj_set_y(ui_Label13, 132);
     lv_obj_set_align(ui_Label13, LV_ALIGN_CENTER);
     lv_obj_set_flex_flow(ui_Label13, LV_FLEX_FLOW_ROW);
     lv_obj_set_flex_align(ui_Label13, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER);
-    lv_label_set_text(ui_Label13, "0");
+    lv_label_set_text(ui_Label13, "100");
     lv_obj_set_style_text_align(ui_Label13, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     uic_Screen1 = ui_Screen1;

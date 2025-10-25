@@ -12,6 +12,7 @@
       <w>recv</w>
       <w>sclk</w>
       <w>timeinfo</w>
+      <w>ttts</w>
       <w>vspi</w>
       <w>xerr</w>
       <w>yerr</w>

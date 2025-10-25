@@ -92,7 +92,10 @@ public:
     }
 
     void loop() {
-        pages.top()->page_loop();
+        try {
+            pages.top()->page_loop();
+        } catch (exception &e) {
+        }
     }
 };
 

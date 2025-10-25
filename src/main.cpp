@@ -10,7 +10,7 @@
 #include "utils.h"
 #include "app_event.h"
 #include "http.h"
-#include "pages/buttons/buttons_page.h"
+
 
 using namespace std;
 
@@ -136,7 +136,6 @@ void setup() {
 
     pm.set_default_page(pageMain);
 
-
     // WiFi.mode(WIFI_STA);
     // lv_obj_add_event_cb(uic_Button1, button_click, LV_EVENT_CLICKED, nullptr);
     // lv_obj_add_event_cb(uic_Button2, button_click_2, LV_EVENT_CLICKED, nullptr);
@@ -156,4 +155,5 @@ void loop() {
         inputString.trim();
         handle_recv_msg(inputString.c_str());
     }
+    delay(20);
 }
