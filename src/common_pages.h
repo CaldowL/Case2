@@ -1,4 +1,6 @@
 #pragma once
+#include <map>
+
 #include "pages/buttons/buttons_page.h"
 #include "pages/keyboard/keyboard_page.h"
 #include "pages/main/main_page.h"
@@ -17,3 +19,5 @@ extern int Volume;
 extern PagesManager pm;
 
 extern const String baseUrl;
+
+extern std::map<String, std::function<void(String)> > callbackDictionary;

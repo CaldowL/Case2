@@ -26,14 +26,24 @@ inline void sync_local_time(int time_str) {
 
 /// 解析串口传入的json字符串
 /// @param msg 传入的参数
-inline void handle_recv_msg(string msg) {
+inline void handle_recv_msg(String msg) {
     Serial.println("---------------------------------------------");
     Serial.println(msg.c_str());
     String action = get_json_string(msg.c_str(), "action", "");
+    String taskid = get_json_string(msg.c_str(), "taskid", "");
 
     if (action == "sync_time") {
         int timestamp = get_json_int(msg.c_str(), "timestamp", 0);
         sync_local_time(timestamp);
+        return;
+    }
+    if (callbackDictionary.find(taskid) != callbackDictionary.end()) {
+        try {
+            callbackDictionary[taskid](msg);
+            callbackDictionary.erase(taskid);
+        } catch (exception &e) {
+            Serial.println(e.what());
+        }
     }
     pm.handle_msg(msg.c_str());
 }

@@ -48,7 +48,7 @@ void refresh_label_time() {
     lv_label_set_text(uic_LabelTime, time_str);
 }
 
-void refresh_performance(String httpPerformanceRes) {
+static void refresh_performance(const String &httpPerformanceRes) {
     Serial.println("recv: " + httpPerformanceRes);
     set_cpu_value_with_animation(get_json_int(httpPerformanceRes, "cpu"));
     set_gpu_value_with_animation(get_json_int(httpPerformanceRes, "gpu"));
@@ -90,10 +90,10 @@ void PageMain::page_loop() {
         refresh_label_time();
     }
 
-    if (millis() - last_performance_time > 1000) {
-        last_performance_time = millis();
-        httpGetAsync(baseUrl + "/system_info", refresh_performance);
-    }
+    // if (millis() - last_performance_time > 1000) {
+    //     last_performance_time = millis();
+    //     httpGetAsync(baseUrl + "/system_info", refresh_performance);
+    // }
 }
 
 void PageMain::handle_msg(String msg) {

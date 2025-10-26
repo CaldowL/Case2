@@ -32,7 +32,6 @@ inline bool httpGet(String url, String &response) {
         response = "HTTP GET failed, error: " + String(http.errorToString(httpCode).c_str());
         success = false;
     }
-
     http.end();
     return success;
 }
@@ -120,18 +119,17 @@ inline void _http_get(void *arg) {
     // 获取参数并立即释放所有权
     std::unique_ptr<HttpRequest> body(static_cast<HttpRequest *>(arg));
 
-    String res;
+    String res = "";
     try {
-        httpGet(body->url, res);
+        if (httpGet(body->url, res)) {
+            if (body->cb) {
+                body->cb(res);
+            }
+        }
     } catch (exception &e) {
     }
-    Serial.println(res);
-    // 确保回调被执行
-    if (body->cb) {
-        body->cb(res);
-    }
 
-    // 任务完成后自动删除自己
+    Serial.println(res);
     vTaskDelete(nullptr);
 }
 
@@ -149,10 +147,24 @@ inline bool httpGetAsync(String url, std::function<void(String)> cb) {
         &taskHandle, // 保存任务句柄以便后续管理
         1 // 绑定到核心1
     );
+    delete body;
 
     if (result != pdPASS) {
-        delete body; // 任务创建失败，清理内存
         return false;
     }
     return true;
+}
+
+inline void request(String json_str, std::function<void(String)> cb) {
+    // 1. 创建一个JsonDocument对象，这里使用静态内存分配，200是预分配的内存大小
+    JsonDocument doc;
+    String taskid = to_string(millis()).c_str();
+    // 2. 向JSON文档中添加键值对
+    doc["data"] = json_str;
+    doc["taskid"] = taskid;
+
+    // 3. 将JSON文档序列化为字符串并输出到串口
+    serializeJson(doc, Serial);
+
+    callbackDictionary[taskid] = cb;
 }

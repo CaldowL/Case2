@@ -36,6 +36,8 @@ const String ssid = "HUAWEI-1GRME0";
 const String password = "ly05661265";
 const String baseUrl = "http://192.168.3.54:9000";
 
+std::map<String, std::function<void(String)> > callbackDictionary;
+
 long last_record_time = millis();
 
 void initHardware() {
@@ -153,7 +155,7 @@ void loop() {
     if (Serial.available() > 0) {
         String inputString = Serial.readStringUntil('\n');
         inputString.trim();
-        handle_recv_msg(inputString.c_str());
+        handle_recv_msg(inputString);
     }
     delay(20);
 }
